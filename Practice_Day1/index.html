@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Day 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ifElse" >        
+        <h3>If else</h3>
+        <!---FIRST--->
+        <div class="if-else-first">   
+            <input type="text" v-model="numberFlat" placeholder="Укажите номер квартиры">
+            <button v-on:click="entranceFlat" >Узнать номер подъезда</button>
+        </div>  
+        <!---SECOND--->
+        <div class="if-else-second">
+            <input type="text" v-model="LoginIfElse2"  placeholder="Введите Логин">
+            <input type="text" v-model="PasswordIfElse2" placeholder="Введите Пароль">
+            <button v-on:click="authorize">Авторизироваться</button>
+        </div>
+        <!---THIRD--->
+        <div class="if-else-third">
+           <input type="text" v-model="AgeIfElse3"  placeholder="Введите год рождения">
+           <button v-on:click="CheckAge">Вход</button>
+        </div>
+        <!---FOURTH--->
+        <div class="if-else-fourth">
+            <input type="text" v-model="ExperienceIfElse4"  placeholder="Введите робочий стаж">
+            <button v-on:click="CheckExperience">Узнать надбавку</button>
+        </div>
+    </div>
+    
+    <div id="cycles">    
+        <h3>Цыкл</h3>    
+        <!---FIRST--->
+        <button class="cycle-first" >Fourhung</button>
+        <!---SECOND--->
+        <button class="cycle-second">RNDChis</button>
+        <!---THIRD--->
+        <button class="cycle-third">Sixhung</button>
+        <!---FOURTH--->
+        <button class="cycle-fourth">Years</button>
+        <!---FIFTH--->
+        <button class="cycle-fifth">Twostep</button>
+        <!---SIXTH--->
+        <div class="cycle-sixth">   
+            <textarea v-model="multiplicationOnFive" cols="10" rows="10"></textarea>
+            <button v-on:click="MultiFive" >Massiv</button>
+        </div>  
+    </div> 
+    
+    <div id="functionTask">
+        <h3>Функции</h3> 
+        <div class="function-first">
+            <div class="picture">
+                <img src="img/1.jpg" alt="">
+                <img src="img/2.jpg" alt="">
+                <img src="img/3.jpg" alt="">
+            </div>  
+        </div>
+        <div class="function-second">
+            <p>За свою карьеру я пропустил более 9000 бросков, проиграл почти 300 игр. 
+                26 раз мне доверяли сделать финальный победный бросок, и я промахивался. 
+                Я терпел поражения снова, и снова, и снова. И именно поэтому я добился успеха.</p>
+             <p>За свою карьеру я пропустил более 9000 бросков, проиграл почти 300 игр. 
+                26 раз мне доверяли сделать финальный победный бросок, и я промахивался. 
+                Я терпел поражения снова, и снова, и снова. И именно поэтому я добился успеха.</p>
+            <p>За свою карьеру я пропустил более 9000 бросков, проиграл почти 300 игр. 
+                26 раз мне доверяли сделать финальный победный бросок, и я промахивался. 
+                Я терпел поражения снова, и снова, и снова. И именно поэтому я добился успеха.</p>
+            <p>За свою карьеру я пропустил более 9000 бросков, проиграл почти 300 игр. 
+                26 раз мне доверяли сделать финальный победный бросок, и я промахивался. 
+                Я терпел поражения снова, и снова, и снова. И именно поэтому я добился успеха.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
