@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=320, initial-scale=1.0">
+        <link rel="stylesheet"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+
+
+        <script src="https://unpkg.com/vue">  </script>
+    </head>
+    <body>
+        
+<div class="center" id="ap">
+    <div id="quote" v-for="qt in quotes">
+        <h3 v-bind:class="qt.quote.length > 40 ? 'red' : 'black'">{{qt.quote}}</h3>  
+        <h5>{{qt.source}}</h5>  
+      </div>
+      <br>
+      <hr>
+<input type="radio" name="author" v-model="isAuthor" value="exist">Указан автор цытаты
+<input type="radio" name="author" v-model="isAuthor" value="">Не указан автор цытаты
+
+
+<br>
+
+
+    <div id="quote" v-for="qt in filteredQuotes">
+      <h3 v-bind:class="qt.quote.length > 40 ? 'red' : 'black'">{{qt.quote}}</h3>  
+      <h5>{{qt.source}}</h5>  
+    </div>
+<hr>
+    <br>
+    <h2> Цытаты у которых есть автор </h2>
+    <div class="quote" v-for="qt in quotes"> 
+<h3> <p v-if=" qt.source.length >= 1 "> {{qt.quote}} </p> 
+<p v-else> </p>
+</h3>
+<h5>  {{qt.source}} </h5> 
+    </div>
+<hr>
+    <br>
+
+    <button v-on:click="sort()">Сортировка по алфавиту</button>
+    <div class="quote" v-for="qt in sortedQuotes">
+<h3>{{qt.quote}}</h3>
+<h5>{{qt.source}}</h5> 
+
+    </div>
+</div>
+<div id=ap2>
+<h3>Вариации вывода моего имени:</h3> 
+    <button v-on:click="showMyName">Вывод при нажатии на кнопку</button>{{Name}} 
+   <br>Нажмите enter внутри строки: <input v-on:keyup.enter="showMyNam">{{Nam}} 
+   <br>Левая кнопка мыши + alt под этой надписью : <div v-on:click.alt="showMessage" style="min-width:100px;min-height:100px">{{greet}}</div>
+</div>
+    </body>
+    <script type="text/javascript"> 
+    var quotesArray = [
+{
+"quote": "Illusion is the first of all pleasures.",
+"source": "Oscar Wilde"
+},
+{
+    "quote": "Music is the soul of language.",
+    "source": "Max Heindel"
+},
+{
+    "quote": "Endless love",
+    "source": ""
+},
+{
+    "quote": "It's easy to quit smoking. I've done it hundreds of times.",
+    "source": "Mark Twain"
+},
+{
+    "quote": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "source": "Albert Einstein"
+},
+{
+    "quote": "Never look back",
+    "source": ""
+},
+]
+new Vue ({
+el: '#ap',
+data: {
+    quotes: quotesArray,
+    isAuthor: "",
+},
+computed: {
+    filteredQuotes: function() {
+        return this.quotes.filter(element =>{
+            return Boolean(this.isAuthor) == Boolean(element.source)
+        })
+    }
+},
+
+methods: {
+sort () {
+    this.sortedQuotes = this.quotes.sort((a, b) => (a.source > b.source) ? 1 : -1)
+},
+}
+
+
+})
+var app = new Vue({
+    el:'#ap2',
+    data:{
+       
+		Name:"",
+		Nam:"",
+		greet:"",
+    },
+    methods:{
+	   showMyName: function(){
+		   this.Name = "ViKtoR";
+	   },
+	   showMyNam: function(){
+		   this.Nam = "ViKtoR";
+	   },
+	   showMessage: function(){
+		   this.greet = "ViKtoR";
+	   },
+    },
+   
+})
+    </script>
+    <style>
+        .center {
+            width: 28%;
+           margin: 0 auto;
+        }
+        .red {
+            color: red;
+        }
+        .black {
+            color: black;
+        }
+    </style>
+</html>
